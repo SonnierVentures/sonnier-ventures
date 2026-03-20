@@ -4,10 +4,14 @@
 :root {
   --gold: #C9A84C;
   --gold-dim: #C9A84C44;
+  --green: #00ff9d;
+  --green-dim: rgba(0,255,157,0.15);
+  --green-glow: rgba(0,255,157,0.08);
   --bg: #080810;
   --surface: #0D0D1A;
   --surface-2: #111120;
   --border: rgba(201,168,76,0.15);
+  --border-green: rgba(0,255,157,0.15);
   --text: #F0EDE6;
   --text-dim: rgba(240,237,230,0.4);
 }
@@ -202,3 +206,398 @@ h1,h2,h3,h4 { font-family: 'Cormorant Garamond', serif; }
 .divider { height:1px; background:linear-gradient(90deg,transparent,var(--gold-dim),transparent); }
 .animate-fadeUp { animation:fadeUp .8s ease both; }
 .animate-fadeIn { animation:fadeIn .6s ease both; }
+
+/* ── Green / Terminal Theme Variants ────────── */
+@keyframes scanH-green { 0%{transform:translateX(-100%);opacity:0} 10%{opacity:1} 90%{opacity:1} 100%{transform:translateX(100vw);opacity:0} }
+@keyframes rockal-spin { to { transform: rotate(360deg); } }
+@keyframes rockal-pulse { 0%,100%{box-shadow:0 0 6px var(--green)} 50%{box-shadow:0 0 18px var(--green)} }
+
+.grid-bg-green { position:fixed; inset:0; background-image:linear-gradient(rgba(0,255,157,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(0,255,157,.04) 1px,transparent 1px); background-size:64px 64px; pointer-events:none; z-index:0; }
+.scanline-green { position:fixed; top:0; left:0; width:2px; height:100vh; background:linear-gradient(to bottom,transparent,var(--green),transparent); opacity:.25; animation:scanH-green 14s linear infinite; pointer-events:none; z-index:99; }
+.status-dot-green { width:6px; height:6px; border-radius:50%; background:var(--green); animation:pulse-dot 2s ease-in-out infinite; }
+.divider-green { height:1px; background:linear-gradient(90deg,transparent,var(--green-dim),transparent); }
+
+.tag-green { font-size:9px; letter-spacing:.2em; text-transform:uppercase; padding:3px 10px; border:1px solid var(--border-green); border-radius:1px; color:var(--text-dim); font-family:'DM Mono',monospace; }
+.tag-green.active { border-color:var(--green-dim); color:var(--green); background:var(--green-glow); }
+
+.vertical-tab-green {
+  background: none; border: none;
+  border-bottom: 2px solid transparent;
+  padding: 12px 24px;
+  font-family: 'DM Mono', monospace;
+  font-size: 10px; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--text-dim);
+  cursor: pointer; transition: all .25s ease; margin-bottom: -1px;
+}
+.vertical-tab-green:hover { color: var(--text); }
+.vertical-tab-green.active { color: var(--green); border-bottom-color: var(--green); }
+
+.product-card-green { position:relative; border:1px solid var(--border-green); border-radius:2px; padding:32px; background:var(--surface); transition:all .3s ease; cursor:default; overflow:hidden; }
+.product-card-green::before { content:''; position:absolute; top:0; left:0; width:2px; height:0; background:var(--green); transition:height .4s ease; }
+.product-card-green:hover::before { height:100%; }
+.product-card-green:hover { border-color:var(--green-dim); background:var(--green-glow); transform:translateY(-2px); }
+
+.case-study-card-green { border:1px solid var(--border-green); border-radius:2px; padding:48px; background:var(--surface); position:relative; overflow:hidden; }
+.case-study-card-green::before { content:''; position:absolute; top:0; left:0; right:0; height:2px; background:linear-gradient(90deg,var(--green),transparent); }
+
+.result-block-green { padding:24px 28px; background:var(--green-glow); border:1px solid var(--border-green); border-radius:2px; min-width:120px; text-align:center; }
+
+.audit-form-green { border:1px solid var(--border-green); border-radius:2px; padding:40px; background:var(--surface); position:relative; overflow:hidden; }
+.audit-form-green::before { content:''; position:absolute; top:0; left:0; width:2px; height:100%; background:linear-gradient(to bottom,var(--green),transparent); }
+.audit-input-green { width:100%; background:var(--bg); border:1px solid var(--border-green); border-radius:1px; padding:12px 14px; font-family:'DM Mono',monospace; font-size:11px; color:var(--text); resize:vertical; outline:none; transition:border-color .2s; line-height:1.7; }
+.audit-input-green::placeholder { color:var(--text-dim); }
+.audit-input-green:focus { border-color:var(--green-dim); }
+.audit-submit-green { width:100%; padding:14px 24px; background:transparent; border:1px solid var(--border-green); border-radius:1px; font-family:'DM Mono',monospace; font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:var(--text-dim); cursor:pointer; transition:all .25s ease; }
+.audit-submit-green.ready { border-color:var(--green); color:var(--green); background:var(--green-glow); }
+.audit-submit-green.ready:hover { background:var(--green); color:var(--bg); }
+
+.dispatch-card-green { border:1px solid var(--border-green); border-radius:2px; padding:32px; background:var(--surface); transition:all .3s ease; position:relative; overflow:hidden; }
+.dispatch-card-green::before { content:''; position:absolute; top:0; left:0; width:0; height:2px; background:var(--green); transition:width .4s ease; }
+.dispatch-card-green:hover::before { width:100%; }
+.dispatch-card-green:hover { border-color:var(--green-dim); }
+
+.dispatch-signup-green { border:1px solid var(--border-green); border-radius:2px; padding:48px; background:var(--surface); max-width:640px; margin:0 auto; }
+.dispatch-input-green { flex:1; padding:14px 16px; background:var(--bg); border:1px solid var(--border-green); border-right:none; border-radius:1px 0 0 1px; font-family:'DM Mono',monospace; font-size:11px; color:var(--text); outline:none; transition:border-color .2s; }
+.dispatch-input-green::placeholder { color:var(--text-dim); }
+.dispatch-input-green:focus { border-color:var(--green-dim); }
+.dispatch-btn-green { padding:14px 24px; background:var(--green); border:1px solid var(--green); border-radius:0 1px 1px 0; font-family:'DM Mono',monospace; font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:var(--bg); cursor:pointer; transition:opacity .2s; white-space:nowrap; }
+.dispatch-btn-green:hover { opacity:.85; }
+
+/* ── Rockal Hero CTA ────────────────────────── */
+.rockal-hero-cta {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 14px 32px;
+  background: var(--green);
+  border: 1px solid var(--green);
+  border-radius: 2px;
+  font-family: 'DM Mono', monospace;
+  font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--bg); font-weight: 500;
+  cursor: pointer; transition: all .2s ease;
+  text-decoration: none;
+}
+.rockal-hero-cta:hover { background: transparent; color: var(--green); box-shadow: 0 0 24px rgba(0,255,157,0.2); }
+
+/* ── Rockal Empire Card ──────────────────────── */
+.rockal-empire-card {
+  border: 1px solid var(--border-green);
+  border-radius: 2px;
+  padding: 40px;
+  background: var(--surface);
+  position: relative; overflow: hidden;
+}
+.rockal-empire-card::before {
+  content: ''; position: absolute;
+  top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, var(--green), transparent);
+}
+.rockal-empire-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 11px 24px;
+  background: transparent;
+  border: 1px solid var(--border-green);
+  border-radius: 1px;
+  font-family: 'DM Mono', monospace;
+  font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--green); cursor: pointer; transition: all .2s ease;
+  text-decoration: none;
+}
+.rockal-empire-btn:hover { background: var(--green-glow); border-color: var(--green); }
+
+/* ── Rockal Page ─────────────────────────────── */
+.rockal-page {
+  min-height: 100vh;
+  background: var(--bg);
+  position: relative;
+  overflow-x: hidden;
+}
+
+.rockal-nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 20px 48px;
+  background: rgba(8,8,16,0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-green);
+}
+.rockal-nav-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 16px; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--text); text-decoration: none;
+  transition: color .2s;
+}
+.rockal-nav-logo:hover { color: var(--green); }
+.rockal-badge {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase;
+  padding: 4px 10px;
+  border: 1px solid var(--border-green);
+  border-radius: 1px;
+  color: var(--green);
+  background: var(--green-glow);
+}
+
+/* ── Rockal Layout ───────────────────────────── */
+.rockal-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 120px 48px 80px;
+  position: relative; z-index: 1;
+}
+@media (max-width: 900px) {
+  .rockal-layout { grid-template-columns: 1fr; padding: 100px 24px 60px; gap: 40px; }
+  .rockal-nav { padding: 16px 24px; }
+}
+
+.rockal-left { display: flex; flex-direction: column; gap: 32px; }
+.rockal-right { display: flex; flex-direction: column; }
+
+.rockal-eyebrow {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px; letter-spacing: 0.25em; text-transform: uppercase;
+  color: var(--green); opacity: 0.7;
+}
+.rockal-heading {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(36px, 5vw, 56px);
+  font-weight: 300; line-height: 1.15;
+  color: var(--text);
+}
+.rockal-heading-accent { color: var(--green); }
+.rockal-desc {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px; line-height: 1.9;
+  color: var(--text-dim);
+  max-width: 520px;
+}
+
+/* ── Rockal Features ─────────────────────────── */
+.rockal-features { display: flex; flex-direction: column; gap: 12px; }
+.rockal-feature-row {
+  display: flex; align-items: flex-start; gap: 14px;
+  padding: 14px 16px;
+  border: 1px solid rgba(0,255,157,0.08);
+  border-radius: 2px;
+  background: rgba(0,255,157,0.02);
+  transition: border-color .2s;
+}
+.rockal-feature-row:hover { border-color: var(--border-green); }
+.rockal-feature-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+.rockal-feature-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--text); font-weight: 500; margin-bottom: 3px;
+}
+.rockal-feature-desc {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px; color: var(--text-dim); line-height: 1.6;
+}
+
+/* ── Rockal Trial Box ─────────────────────────── */
+.rockal-trial-box {
+  padding: 24px;
+  border: 1px solid var(--border-green);
+  border-radius: 2px;
+  background: var(--green-glow);
+}
+.rockal-trial-header {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--green); margin-bottom: 14px;
+}
+.rockal-trial-item {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px; color: var(--text-dim);
+  line-height: 1.7; padding: 3px 0;
+}
+.rockal-trial-note {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px; color: rgba(0,255,157,0.4);
+  margin-top: 12px; letter-spacing: 0.1em;
+}
+
+/* ── Rockal Form Card ────────────────────────── */
+.rockal-form-card {
+  border: 1px solid var(--border-green);
+  border-radius: 2px;
+  padding: 40px;
+  background: var(--surface);
+  position: sticky; top: 100px;
+}
+.rockal-form-header { margin-bottom: 28px; }
+.rockal-form-eyebrow {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--green); opacity: 0.7; margin-bottom: 10px;
+}
+.rockal-form-heading {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 26px; font-weight: 400; color: var(--text); margin-bottom: 6px;
+}
+.rockal-form-sub {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px; color: var(--text-dim);
+}
+
+/* ── Rockal Plan Toggle ──────────────────────── */
+.rockal-plan-toggle {
+  display: flex; gap: 0;
+  border: 1px solid var(--border-green);
+  border-radius: 2px;
+  overflow: hidden; margin-bottom: 24px;
+}
+.rockal-plan-btn {
+  flex: 1; padding: 10px 16px;
+  background: transparent;
+  border: none;
+  font-family: 'DM Mono', monospace;
+  font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--text-dim); cursor: pointer; transition: all .2s;
+}
+.rockal-plan-btn + .rockal-plan-btn { border-left: 1px solid var(--border-green); }
+.rockal-plan-btn.active { background: var(--green); color: var(--bg); font-weight: 500; }
+.rockal-plan-btn:not(.active):hover { color: var(--text); background: rgba(0,255,157,0.04); }
+
+/* ── Rockal Form Fields ──────────────────────── */
+.rockal-form-fields { display: flex; flex-direction: column; gap: 16px; margin-bottom: 20px; }
+.rockal-field { display: flex; flex-direction: column; gap: 6px; }
+.rockal-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--text-dim);
+}
+.rockal-input {
+  width: 100%;
+  background: var(--bg);
+  border: 1px solid var(--border-green);
+  border-radius: 1px;
+  padding: 12px 14px;
+  font-family: 'DM Mono', monospace;
+  font-size: 11px; color: var(--text);
+  outline: none; transition: border-color .2s; line-height: 1.7;
+}
+.rockal-input::placeholder { color: rgba(240,237,230,0.2); }
+.rockal-input:focus { border-color: var(--green); box-shadow: 0 0 0 2px rgba(0,255,157,0.06); }
+.rockal-textarea { resize: vertical; }
+
+/* ── Rockal Submit ───────────────────────────── */
+.rockal-error {
+  padding: 10px 14px;
+  border: 1px solid rgba(255,80,80,0.3);
+  border-radius: 1px;
+  background: rgba(255,80,80,0.05);
+  font-family: 'DM Mono', monospace;
+  font-size: 10px; color: #ff6060;
+  margin-bottom: 14px;
+}
+.rockal-submit-btn {
+  width: 100%; padding: 14px 24px;
+  background: transparent;
+  border: 1px solid var(--border-green);
+  border-radius: 1px;
+  font-family: 'DM Mono', monospace;
+  font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--text-dim); cursor: pointer; transition: all .25s ease;
+}
+.rockal-submit-btn.ready,
+.rockal-submit-btn:not(:disabled):not([disabled]) {
+  border-color: var(--green); color: var(--green);
+  background: var(--green-glow);
+}
+.rockal-submit-btn.ready:hover { background: var(--green); color: var(--bg); }
+.rockal-submit-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+.rockal-spinner {
+  display: inline-block; width: 12px; height: 12px;
+  border: 1.5px solid rgba(0,255,157,0.2);
+  border-top-color: var(--green);
+  border-radius: 50%;
+  animation: rockal-spin 0.7s linear infinite;
+}
+
+/* ── Rockal Form Legal / Social Proof ────────── */
+.rockal-form-legal {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px; color: rgba(240,237,230,0.2);
+  text-align: center; line-height: 1.7;
+  margin-top: 14px;
+}
+.rockal-social-proof {
+  margin-top: 20px;
+  padding: 16px;
+  border: 1px solid rgba(0,255,157,0.07);
+  border-radius: 1px;
+  background: rgba(0,255,157,0.02);
+  display: flex; flex-direction: column; gap: 8px;
+}
+.rockal-proof-row {
+  display: flex; align-items: center; gap: 8px;
+  font-family: 'DM Mono', monospace;
+  font-size: 9px; color: rgba(240,237,230,0.3); letter-spacing: 0.05em;
+}
+.rockal-proof-dot {
+  width: 5px; height: 5px; border-radius: 50%;
+  background: var(--green); flex-shrink: 0;
+  box-shadow: 0 0 6px var(--green);
+  animation: pulse-dot 2.5s ease-in-out infinite;
+}
+
+/* ── Rockal Confirm Screen ───────────────────── */
+.rockal-confirm-wrap {
+  display: flex; align-items: center; justify-content: center;
+  min-height: 100vh; padding: 120px 24px 60px;
+  position: relative; z-index: 1;
+}
+.rockal-confirm-card {
+  border: 1px solid var(--border-green);
+  border-radius: 2px;
+  padding: 56px 48px;
+  background: var(--surface);
+  max-width: 520px; width: 100%;
+  text-align: center;
+  position: relative; overflow: hidden;
+  animation: rockal-pulse 3s ease-in-out infinite;
+}
+.rockal-confirm-card::before {
+  content: ''; position: absolute;
+  top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, transparent, var(--green), transparent);
+}
+.rockal-confirm-status {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px; letter-spacing: 0.25em; text-transform: uppercase;
+  color: var(--green); margin-bottom: 16px;
+}
+.rockal-confirm-heading {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 40px; font-weight: 300; color: var(--text); margin-bottom: 14px;
+}
+.rockal-confirm-sub {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px; line-height: 1.8; color: var(--text-dim);
+  margin-bottom: 28px;
+}
+.rockal-confirm-details {
+  border: 1px solid var(--border-green);
+  border-radius: 1px;
+  overflow: hidden; margin-bottom: 24px;
+}
+.rockal-detail-row {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 12px 16px;
+  font-family: 'DM Mono', monospace;
+  font-size: 10px; color: var(--text-dim);
+  border-bottom: 1px solid rgba(0,255,157,0.06);
+}
+.rockal-detail-row:last-child { border-bottom: none; }
+.rockal-back-link {
+  display: block; margin-top: 16px;
+  font-family: 'DM Mono', monospace;
+  font-size: 9px; letter-spacing: 0.15em; text-transform: uppercase;
+  color: rgba(240,237,230,0.2); text-decoration: none;
+  transition: color .2s;
+}
+.rockal-back-link:hover { color: var(--text-dim); }
