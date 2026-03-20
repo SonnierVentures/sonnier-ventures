@@ -1,7 +1,6 @@
 'use client'
 import { useEffect, useState } from 'react'
 import dynamic from 'next/dynamic'
-import Link from 'next/link'
 
 // Load graph client-side only (canvas API)
 const EmpireMCPGraph = dynamic(() => import('@/components/EmpireMCPGraph'), { ssr: false })
@@ -30,10 +29,10 @@ const verticals = [
         name: 'x3o.ai',
         category: 'Command Center',
         tagline: 'AI-Powered Business Intelligence Dashboard',
-        description: 'Bloomberg Terminal-style SaaS command center. Multi-tenant, real-time, built for operators who want signal not noise. Powered by Rockal.',
-        url: '/rockal',
+        description: 'Revenue Recovery AI — ghost client revival, conversation recovery, and instant waitlist slot filling. The Ferrari Engine for service businesses.',
+        url: 'https://x3o.ai',
         status: 'live',
-        tags: ['SaaS', 'AI Ops', 'Dashboard'],
+        tags: ['Revenue Recovery', 'AI Ops', 'Multi-tenant'],
         accentColor: '#00ff9d',
       },
       {
@@ -209,10 +208,10 @@ export default function Home() {
               {item.label}
             </a>
           ))}
-          <Link href="/rockal"
+          <a href="#audits"
             style={{ fontSize: 9, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--bg)', background: 'var(--green)', padding: '9px 18px', textDecoration: 'none', borderRadius: 2, fontWeight: 600, fontFamily: "'DM Mono', monospace", whiteSpace: 'nowrap' }}>
-            Start Free Trial
-          </Link>
+            Request Audit
+          </a>
         </div>
       </nav>
 
@@ -233,22 +232,8 @@ export default function Home() {
             Sonnier Ventures is a one-person holding company deploying AI infrastructure, developer tooling, and vertical SaaS across eight active products — all running on Empire MCP.
           </p>
 
-          {/* Rockal CTA — primary */}
-          <div style={{ marginTop: 40, display: 'flex', flexDirection: 'column', gap: 12, maxWidth: 420 }}>
-            <Link href="/rockal" className="rockal-hero-cta">
-              <span>⚔️</span>
-              <span>Start 30-Day Rockal Trial — Free</span>
-              <span style={{ opacity: 0.6 }}>→</span>
-            </Link>
-            <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
-              <span style={{ fontSize: 9, color: 'var(--text-dim)', letterSpacing: '0.1em', textTransform: 'uppercase' }}>First sign-on gets full Empire MCP access</span>
-              <span style={{ fontSize: 9, color: 'var(--green)', opacity: 0.5 }}>·</span>
-              <span style={{ fontSize: 9, color: 'var(--text-dim)', letterSpacing: '0.1em', textTransform: 'uppercase' }}>No card required</span>
-            </div>
-          </div>
-
-          {/* Secondary CTAs */}
-          <div style={{ display: 'flex', gap: 12, marginTop: 24 }}>
+          {/* Primary CTAs */}
+          <div style={{ display: 'flex', gap: 12, marginTop: 40 }}>
             <a href="#portfolio"
               style={{ fontSize: 9, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--text-dim)', border: '1px solid rgba(0,255,157,0.2)', padding: '11px 22px', textDecoration: 'none', borderRadius: 2, transition: 'all .2s' }}
               onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.color = 'var(--green)'; (e.currentTarget as HTMLAnchorElement).style.borderColor = 'rgba(0,255,157,0.5)' }}
@@ -300,37 +285,37 @@ export default function Home() {
             <p style={{ fontSize: 11, color: 'var(--text-dim)', lineHeight: 1.85 }}>
               39 MCP tools across 8 services. Every Sonnier Ventures product runs on the same infrastructure backbone — modular, monitored, and designed to compound.
             </p>
-            <Link href="/rockal"
+            <a href="https://openconductor.io" target="_blank" rel="noopener noreferrer"
               style={{ display: 'inline-flex', marginTop: 20, fontSize: 9, letterSpacing: '0.2em', color: 'var(--green)', textDecoration: 'none', textTransform: 'uppercase', borderBottom: '1px solid rgba(0,255,157,0.3)', paddingBottom: 2 }}>
-              Access via Rockal →
-            </Link>
+              OpenConductor Registry →
+            </a>
           </div>
         </div>
 
-        {/* Rockal trial card */}
+        {/* Local outreach / custom build card */}
         <div className="rockal-empire-card">
           <div style={{ display: 'flex', flexDirection: 'column', gap: 16, flex: 1 }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
               <div className="status-dot-green" />
-              <span style={{ fontSize: 9, letterSpacing: '0.25em', color: 'var(--green)', textTransform: 'uppercase' }}>Rockal · Now Open for Trial</span>
+              <span style={{ fontSize: 9, letterSpacing: '0.25em', color: 'var(--green)', textTransform: 'uppercase' }}>Custom Agentic Platform Builds · Now Accepting Clients</span>
             </div>
             <h3 style={{ fontSize: 'clamp(24px,3vw,40px)', fontWeight: 600, color: 'var(--text)', lineHeight: 1.1, fontFamily: "'Cormorant Garamond', serif" }}>
-              Your first sign-on activates a 30-day trial.
+              We build the AI infrastructure.<br />You run the business.
             </h3>
             <p style={{ fontSize: 12, color: 'var(--text-dim)', lineHeight: 1.9, maxWidth: 520 }}>
-              Rockal is the x3o.ai Command Center — full Empire MCP access, Trinity AI operators, Schedule AI, and real-time business intelligence. First-time sign-on gets the complete suite free for 30 days.
+              KeLatic went from manual operations to a fully autonomous booking, CRM, and revenue engine — powered by Empire MCP. We replicate that architecture for local service businesses ready to operate at a different level.
             </p>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginTop: 4 }}>
-              {['39 MCP Tools', 'Trinity AI', 'Schedule AI', 'Real-time Dashboard', 'No Credit Card'].map(t => (
+              {['Empire MCP v2', 'Trinity AI', 'Booking Automation', 'SMS & CRM', 'Custom Build'].map(t => (
                 <span key={t} className="tag-green">{t}</span>
               ))}
             </div>
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 12, alignItems: 'flex-start', justifyContent: 'center', paddingLeft: 48, borderLeft: '1px solid rgba(0,255,157,0.15)', minWidth: 220 }}>
-            <Link href="/rockal" className="rockal-empire-btn">
-              ⚔️ Start Free Trial →
-            </Link>
-            <span style={{ fontSize: 9, color: 'var(--text-dim)', letterSpacing: '0.1em', textTransform: 'uppercase' }}>First sign-on only</span>
+            <a href="#audits" className="rockal-empire-btn">
+              ⚔️ Request an Audit →
+            </a>
+            <span style={{ fontSize: 9, color: 'var(--text-dim)', letterSpacing: '0.1em', textTransform: 'uppercase' }}>Response within 48 hours</span>
           </div>
         </div>
       </section>
@@ -387,7 +372,7 @@ export default function Home() {
                 {p.url !== '#' && (
                   <a href={p.url} target={p.url.startsWith('http') ? '_blank' : '_self'} rel="noopener noreferrer"
                     style={{ display: 'inline-flex', marginTop: 24, fontSize: 9, letterSpacing: '0.2em', color: p.accentColor, textDecoration: 'none', textTransform: 'uppercase', borderBottom: `1px solid ${p.accentColor}44`, paddingBottom: 2 }}>
-                    {p.url === '/rockal' ? 'Start Trial →' : 'Visit →'}
+                    {'Visit →'}
                   </a>
                 )}
               </div>
@@ -607,17 +592,17 @@ export default function Home() {
           Let&apos;s build something.
         </h2>
         <p style={{ fontSize: 12, color: 'var(--text-dim)', maxWidth: 520, margin: '0 auto 48px', lineHeight: 1.8 }}>
-          Partnerships, investments, digital transformation contracts, or conversations about the future of AI infrastructure — reach out directly.
+          Custom agentic platform builds, digital transformation contracts, partnerships, or conversations about AI infrastructure — reach out directly.
         </p>
         <div style={{ display: 'flex', gap: 16, justifyContent: 'center', flexWrap: 'wrap' }}>
           <a href="mailto:shawn@sonnierventures.com"
             style={{ fontSize: 9, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--bg)', background: 'var(--green)', padding: '16px 36px', textDecoration: 'none', borderRadius: 2, display: 'inline-block', fontWeight: 600 }}>
             shawn@sonnierventures.com
           </a>
-          <Link href="/rockal"
+          <a href="#audits"
             style={{ fontSize: 9, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--green)', border: '1px solid rgba(0,255,157,0.3)', padding: '16px 36px', textDecoration: 'none', borderRadius: 2, display: 'inline-block' }}>
-            Start Rockal Trial →
-          </Link>
+            Request an Audit →
+          </a>
         </div>
       </section>
 
@@ -625,12 +610,6 @@ export default function Home() {
       <footer style={{ borderTop: '1px solid rgba(0,255,157,0.1)', padding: '24px 48px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', position: 'relative', zIndex: 1 }}>
         <span style={{ fontSize: 9, letterSpacing: '0.2em', color: 'var(--text-dim)', textTransform: 'uppercase' }}>© 2026 Sonnier Ventures</span>
         <div style={{ display: 'flex', gap: 24, alignItems: 'center' }}>
-          <Link href="/rockal"
-            style={{ fontSize: 9, letterSpacing: '0.15em', color: 'var(--green)', textDecoration: 'none', textTransform: 'uppercase', opacity: 0.7 }}
-            onMouseEnter={e => (e.currentTarget.style.opacity = '1')}
-            onMouseLeave={e => (e.currentTarget.style.opacity = '0.7')}>
-            Rockal ↗
-          </Link>
           {allLiveProducts.filter(p => p.url.startsWith('http')).map(p => (
             <a key={p.name} href={p.url} target="_blank" rel="noopener noreferrer"
               style={{ fontSize: 9, letterSpacing: '0.15em', color: 'var(--text-dim)', textDecoration: 'none', textTransform: 'uppercase', transition: 'color .2s' }}
