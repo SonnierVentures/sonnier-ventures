@@ -189,12 +189,12 @@ export default function Home() {
       <div className="scanline" />
 
       {/* ── Nav ───────────────────────────────── */}
-      <nav style={{ position: 'fixed', top: 0, left: 0, right: 0, zIndex: 50, padding: '18px 48px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderBottom: '1px solid rgba(0,255,157,0.07)', backdropFilter: 'blur(20px)', background: 'rgba(8,8,16,0.92)' }}>
+      <nav className="sv-nav" style={{ position: 'fixed', top: 0, left: 0, right: 0, zIndex: 50, padding: '18px 48px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderBottom: '1px solid rgba(0,255,157,0.07)', backdropFilter: 'blur(20px)', background: 'rgba(8,8,16,0.92)' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
           <div className="status-dot-green" />
           <span style={{ fontSize: 11, letterSpacing: '0.2em', color: 'var(--green)', textTransform: 'uppercase', fontFamily: "'DM Mono', monospace" }}>Sonnier Ventures</span>
         </div>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 28 }}>
+        <div className="sv-nav-links" style={{ display: 'flex', alignItems: 'center', gap: 28 }}>
           {[
             { label: 'Infrastructure', href: '#infrastructure' },
             { label: 'Portfolio',      href: '#portfolio' },
@@ -217,7 +217,7 @@ export default function Home() {
       </nav>
 
       {/* ── Hero ──────────────────────────────── */}
-      <section style={{ minHeight: '100vh', display: 'grid', gridTemplateColumns: '1fr 1fr', alignItems: 'center', padding: '100px 48px 60px', gap: 48, position: 'relative', zIndex: 1 }}>
+      <section className="hero-split" style={{ minHeight: '100vh', display: 'grid', alignItems: 'center', padding: '100px 48px 60px', gap: 48, position: 'relative', zIndex: 1 }}>
         {/* Left: Copy */}
         <div>
           <div style={{ fontSize: 9, letterSpacing: '0.35em', color: 'var(--green)', textTransform: 'uppercase', marginBottom: 20, display: 'flex', alignItems: 'center', gap: 10 }}>
@@ -265,7 +265,7 @@ export default function Home() {
         </div>
 
         {/* Right: Graph */}
-        <div>
+        <div className="hero-graph">
           <EmpireMCPGraph />
         </div>
       </section>
@@ -274,7 +274,7 @@ export default function Home() {
 
       {/* ── Stats ─────────────────────────────── */}
       <section style={{ padding: '72px 48px', position: 'relative', zIndex: 1 }}>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', border: '1px solid rgba(0,255,157,0.1)', borderRadius: 2 }}>
+        <div className="stats-grid" style={{ display: 'grid', border: '1px solid rgba(0,255,157,0.1)', borderRadius: 2 }}>
           {stats.map((s, i) => (
             <div key={i} style={{ padding: '36px 28px', borderRight: i < 3 ? '1px solid rgba(0,255,157,0.1)' : 'none', textAlign: 'center' }}>
               <div style={{ fontSize: 44, fontWeight: 600, color: 'var(--green)', lineHeight: 1, fontFamily: "'DM Mono', monospace" }}>{s.value}</div>
@@ -436,7 +436,7 @@ export default function Home() {
                 ))}
               </div>
             </div>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 48 }}>
+            <div className="two-col-grid" style={{ display: 'grid', gap: 48 }}>
               <div>
                 <div style={{ fontSize: 9, letterSpacing: '0.25em', color: 'var(--text-dim)', textTransform: 'uppercase', marginBottom: 12 }}>Challenge</div>
                 <p style={{ fontSize: 12, color: 'var(--text-dim)', lineHeight: 1.9 }}>{cs.challenge}</p>
@@ -457,7 +457,7 @@ export default function Home() {
 
       {/* ── Venture Audits ────────────────────── */}
       <section id="audits" style={{ padding: '100px 48px', position: 'relative', zIndex: 1 }}>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 80, alignItems: 'start' }}>
+        <div className="two-col-grid" style={{ display: 'grid', gap: 80, alignItems: 'start' }}>
           <div>
             <div style={{ fontSize: 9, letterSpacing: '0.3em', color: 'var(--green)', textTransform: 'uppercase', marginBottom: 16 }}>Technical Audit</div>
             <h2 style={{ fontSize: 'clamp(32px,4vw,60px)', fontWeight: 300, color: 'var(--text)', letterSpacing: '-0.02em', lineHeight: 1.05, marginBottom: 24, fontFamily: "'Cormorant Garamond', serif" }}>
@@ -574,7 +574,7 @@ export default function Home() {
 
       {/* ── About ─────────────────────────────── */}
       <section id="about" style={{ padding: '100px 48px', position: 'relative', zIndex: 1 }}>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 80, alignItems: 'start' }}>
+        <div className="two-col-grid" style={{ display: 'grid', gap: 80, alignItems: 'start' }}>
           <div>
             <div style={{ fontSize: 9, letterSpacing: '0.3em', color: 'var(--green)', textTransform: 'uppercase', marginBottom: 16 }}>About</div>
             <h2 style={{ fontSize: 'clamp(36px,4vw,64px)', fontWeight: 300, color: 'var(--text)', letterSpacing: '-0.02em', lineHeight: 1.05, fontFamily: "'Cormorant Garamond', serif" }}>

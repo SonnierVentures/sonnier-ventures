@@ -601,3 +601,81 @@ h1,h2,h3,h4 { font-family: 'Cormorant Garamond', serif; }
   transition: color .2s;
 }
 .rockal-back-link:hover { color: var(--text-dim); }
+
+/* ══════════════════════════════════════════════
+   DESKTOP LAYOUT CLASSES (override inline styles)
+══════════════════════════════════════════════ */
+.hero-split       { grid-template-columns: 1fr 1fr; }
+.stats-grid       { grid-template-columns: repeat(4, 1fr); }
+.two-col-grid     { grid-template-columns: 1fr 1fr; }
+
+/* ══════════════════════════════════════════════
+   MOBILE  ≤ 860px
+══════════════════════════════════════════════ */
+@media (max-width: 860px) {
+
+  /* Nav */
+  .sv-nav { padding: 14px 20px !important; }
+  .sv-nav-links > a { display: none; }
+  .sv-nav-links > a:last-child { display: inline-flex; }
+
+  /* Hero — stack graph below copy */
+  .hero-split {
+    grid-template-columns: 1fr !important;
+    padding: 90px 20px 48px !important;
+    min-height: auto !important;
+    gap: 32px !important;
+  }
+  .hero-graph { order: 2; }
+
+  /* Stats — 2 columns */
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  .stats-grid > div:nth-child(2) { border-right: none !important; }
+  .stats-grid > div:nth-child(1),
+  .stats-grid > div:nth-child(2) {
+    border-bottom: 1px solid rgba(0,255,157,0.1);
+  }
+
+  /* All 2-col grids → single column */
+  .two-col-grid {
+    grid-template-columns: 1fr !important;
+    gap: 40px !important;
+  }
+
+  /* Section padding across all sections */
+  section[id], section[style] {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
+  /* Dividers */
+  .divider-green { margin: 0 20px !important; }
+
+  /* Empire card */
+  .rockal-empire-card {
+    flex-direction: column !important;
+    gap: 28px !important;
+  }
+  .rockal-empire-card > div:last-child {
+    padding-left: 0 !important;
+    border-left: none !important;
+    border-top: 1px solid rgba(0,255,157,0.15) !important;
+    padding-top: 24px !important;
+  }
+
+  /* Portfolio vertical tabs — scrollable row */
+  .vertical-tab-green { font-size: 9px !important; padding: 10px 12px !important; }
+
+  /* Case study result blocks — wrap */
+  .result-block-green { padding: 16px !important; min-width: 80px !important; }
+  .result-block-green > div:first-child { font-size: 26px !important; }
+
+  /* Dispatch cards */
+  .dispatch-signup-green { padding: 32px 20px !important; }
+
+  /* Footer */
+  footer { flex-direction: column !important; gap: 16px !important; padding: 24px 20px !important; text-align: center; }
+  footer > div { flex-wrap: wrap; justify-content: center; gap: 16px !important; }
+}
