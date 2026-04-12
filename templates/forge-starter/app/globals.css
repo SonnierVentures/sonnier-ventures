@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+:root {
+  --bg:       #080810;
+  --surface:  #0D0D1A;
+  --green:    #00ff9d;
+  --text:     #F0EDE6;
+  --text-dim: rgba(240, 237, 230, 0.5);
+  --gold:     #C9A84C;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'DM Mono', monospace;
+  -webkit-font-smoothing: antialiased;
+}

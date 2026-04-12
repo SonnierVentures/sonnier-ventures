@@ -202,6 +202,56 @@ const thesisVerticals = [
   },
 ]
 
+const forgeStackLayers = [
+  {
+    layer: 'UI Layer',
+    color: '#60a5fa',
+    stack: ['Next.js 16 (App Router)', 'TypeScript 5', 'Tailwind CSS 4', 'Shadcn / Radix UI'],
+    purpose: 'Pixel-perfect, accessible, dark-themed components. Every satellite ships the same design system — no visual debt from day one.',
+  },
+  {
+    layer: 'Data Layer',
+    color: '#a78bfa',
+    stack: ['Supabase (Postgres + Auth)', 'Row-Level Security', 'Realtime Subscriptions', 'Edge Functions'],
+    purpose: 'Full-stack data with built-in auth and zero custom backend setup for standard use cases. RLS enforced by default.',
+  },
+  {
+    layer: 'Commerce Layer',
+    color: '#fbbf24',
+    stack: ['Stripe Billing', 'Stripe Terminal (POS)', 'Webhook Handlers', 'Twilio SMS'],
+    purpose: 'Metered billing, subscriptions, and in-person POS pre-wired for immediate monetization. No payment plumbing to build.',
+  },
+  {
+    layer: 'AI Layer',
+    color: '#00ff9d',
+    stack: ['Empire MCP v2 (39 tools)', 'Trinity AI Suite', 'OpenConductor Trust Stack', 'Schedule AI'],
+    purpose: 'The orchestration backbone. Agent identity, compliance rails, and automation from day one — not bolted on after launch.',
+  },
+]
+
+const agenticOps = [
+  {
+    name: 'Lead Generation',
+    via: 'x3o.ai',
+    description: 'Automated outbound sequences. AI identifies cold and warm prospects and initiates revival sequences without human intervention.',
+  },
+  {
+    name: 'Client Reactivation',
+    via: 'x3o.ai',
+    description: 'Ghost client revival protocol. 60–90 day dormancy triggers automated re-engagement across SMS and email — converting lost revenue passively.',
+  },
+  {
+    name: 'Cross-Platform Reporting',
+    via: 'ROIzen',
+    description: 'Unified revenue attribution across every satellite. No siloed dashboards — one source of truth for the studio P&L.',
+  },
+  {
+    name: 'Batch Communications',
+    via: 'Schedule AI',
+    description: 'Pre-scheduled content, partner outreach, and internal syncs fired by Schedule AI on rolling cron cadence. The Chairman\'s comms engine.',
+  },
+]
+
 const sprintStages = [
   {
     week: 'Wk 1–2',
@@ -278,8 +328,8 @@ export default function Home() {
         <div className="sv-nav-links" style={{ display: 'flex', alignItems: 'center', gap: 28 }}>
           {[
             { label: 'Architecture', href: '#architecture' },
+            { label: 'Forge',        href: '#forge' },
             { label: 'Thesis',       href: '#thesis' },
-            { label: 'Sprint',       href: '#sprint' },
             { label: 'Portfolio',    href: '#portfolio' },
             { label: 'SDK',          href: '#sdk' },
             { label: 'Apply',        href: '#apply' },
@@ -419,6 +469,102 @@ export default function Home() {
               </div>
             </div>
           ))}
+        </div>
+      </section>
+
+      <div className="divider-green" style={{ margin: '0 48px' }} />
+
+      {/* ── The Forge Stack ───────────────────── */}
+      <section id="forge" style={{ padding: '100px 48px', position: 'relative', zIndex: 1 }}>
+
+        {/* Header */}
+        <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', flexWrap: 'wrap', gap: 24, marginBottom: 64 }}>
+          <div>
+            <div style={{ fontSize: 9, letterSpacing: '0.3em', color: 'var(--green)', textTransform: 'uppercase', marginBottom: 16 }}>The Forge · Studio Tech Stack</div>
+            <h2 style={{ fontSize: 'clamp(36px,5vw,72px)', fontWeight: 300, color: 'var(--text)', letterSpacing: '-0.02em', fontFamily: "'Cormorant Garamond', serif" }}>
+              80% shipped<br />
+              <span style={{ color: 'var(--green)', fontWeight: 600 }}>on day one.</span>
+            </h2>
+          </div>
+          <p style={{ fontSize: 11, color: 'var(--text-dim)', maxWidth: 400, lineHeight: 1.85, textAlign: 'right' }}>
+            Every satellite venture inherits the same production-grade foundation. No boilerplate decisions, no infra debates, no payment plumbing. Founders inherit a running engine and focus entirely on product-market fit.
+          </p>
+        </div>
+
+        {/* Stack layers */}
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(240px,1fr))', gap: 1, border: '1px solid rgba(0,255,157,0.1)', borderRadius: 2, marginBottom: 1 }}>
+          {forgeStackLayers.map((layer, i) => (
+            <div key={layer.layer} style={{
+              padding: '40px 32px',
+              borderRight: i < forgeStackLayers.length - 1 ? '1px solid rgba(0,255,157,0.1)' : 'none',
+              display: 'flex', flexDirection: 'column', gap: 20,
+            }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+                <div style={{ width: 6, height: 6, borderRadius: '50%', background: layer.color, boxShadow: `0 0 8px ${layer.color}` }} />
+                <span style={{ fontSize: 9, letterSpacing: '0.2em', color: layer.color, textTransform: 'uppercase', fontFamily: "'DM Mono', monospace" }}>{layer.layer}</span>
+              </div>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+                {layer.stack.map(item => (
+                  <div key={item} style={{ fontSize: 11, color: 'var(--text)', fontFamily: "'DM Mono', monospace", padding: '6px 10px', background: 'rgba(255,255,255,0.03)', borderRadius: 2, border: `1px solid ${layer.color}18` }}>
+                    {item}
+                  </div>
+                ))}
+              </div>
+              <div style={{ height: 1, background: 'rgba(0,255,157,0.06)' }} />
+              <p style={{ fontSize: 10, color: 'var(--text-dim)', lineHeight: 1.8 }}>{layer.purpose}</p>
+            </div>
+          ))}
+        </div>
+
+        {/* Scaffold terminal */}
+        <div style={{ border: '1px solid rgba(0,255,157,0.1)', borderTop: 'none', borderRadius: '0 0 2px 2px', padding: '28px 32px', background: 'rgba(0,0,0,0.4)', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 20, marginBottom: 64 }}>
+          <div style={{ fontFamily: "'DM Mono', monospace", fontSize: 11 }}>
+            <span style={{ color: 'rgba(0,255,157,0.5)' }}>$ </span>
+            <span style={{ color: '#60a5fa' }}>npx </span>
+            <span style={{ color: 'var(--text-dim)' }}>create-forge-app </span>
+            <span style={{ color: '#fbbf24' }}>my-venture</span>
+            <span style={{ color: 'rgba(0,255,157,0.4)', fontSize: 9 }}> {' '}  // scaffolds the full Forge stack in minutes</span>
+          </div>
+          <a href="https://github.com/SonnierVentures/forge-starter" target="_blank" rel="noopener noreferrer"
+            style={{ fontSize: 9, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--green)', border: '1px solid rgba(0,255,157,0.3)', padding: '10px 20px', textDecoration: 'none', borderRadius: 2, whiteSpace: 'nowrap', transition: 'all .2s' }}
+            onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.background = 'rgba(0,255,157,0.06)' }}
+            onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.background = 'transparent' }}>
+            View on GitHub →
+          </a>
+        </div>
+
+        {/* Agentic operations */}
+        <div style={{ marginBottom: 0 }}>
+          <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', flexWrap: 'wrap', gap: 16, marginBottom: 40 }}>
+            <div>
+              <div style={{ fontSize: 9, letterSpacing: '0.3em', color: 'var(--green)', textTransform: 'uppercase', marginBottom: 12 }}>Agentic Operations · Powered by OpenConductor</div>
+              <h3 style={{ fontSize: 'clamp(24px,3vw,44px)', fontWeight: 300, color: 'var(--text)', letterSpacing: '-0.02em', fontFamily: "'Cormorant Garamond', serif" }}>
+                The studio runs itself<br />
+                <span style={{ color: 'var(--green)', fontWeight: 600 }}>while you build.</span>
+              </h3>
+            </div>
+            <p style={{ fontSize: 11, color: 'var(--text-dim)', maxWidth: 360, lineHeight: 1.85, textAlign: 'right' }}>
+              Four automated pipelines handle the operational grind across every venture — lead gen, client retention, reporting, and comms — without a single human touch.
+            </p>
+          </div>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(260px,1fr))', gap: 1, border: '1px solid rgba(0,255,157,0.1)', borderRadius: 2 }}>
+            {agenticOps.map((op, i) => (
+              <div key={op.name} style={{
+                padding: '36px 28px',
+                borderRight: i < agenticOps.length - 1 ? '1px solid rgba(0,255,157,0.1)' : 'none',
+                display: 'flex', flexDirection: 'column', gap: 14,
+              }}>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                  <span style={{ fontSize: 9, letterSpacing: '0.15em', color: 'rgba(0,255,157,0.4)', textTransform: 'uppercase', fontFamily: "'DM Mono', monospace" }}>via {op.via}</span>
+                  <div className="status-dot-green" style={{ width: 4, height: 4 }} />
+                </div>
+                <h4 style={{ fontSize: 18, fontWeight: 600, color: 'var(--text)', fontFamily: "'Cormorant Garamond', serif" }}>{op.name}</h4>
+                <div style={{ height: 1, background: 'rgba(0,255,157,0.07)' }} />
+                <p style={{ fontSize: 11, color: 'var(--text-dim)', lineHeight: 1.8 }}>{op.description}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
